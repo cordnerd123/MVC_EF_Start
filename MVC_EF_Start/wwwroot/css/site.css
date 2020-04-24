@@ -62,10 +62,6 @@ html {
     width: 50%;
     transform: rotate(90deg);
 }
-/*
-    #Dan.container3 {
-        background-image: url(../img/Danpic.jpeg);
-    }*/
 
 .pgheader {
     width: 75%;
@@ -108,7 +104,7 @@ html {
     top: 0;
     height: auto;
     width: fit-content;
-    font-size: 1.75vw;
+    font-size: 2vw;
     left: 0;
 }
 
@@ -131,6 +127,10 @@ html {
             text-decoration: underline;
             cursor: pointer;
         }
+.link{
+    text-decoration:none;
+
+}
 /*email signup on home*/
 .signup {
     position: absolute;
@@ -158,8 +158,8 @@ html {
 .slidecontainer {
     background-color: black;
     position: absolute;
-    left: 18%;
-    top: 22%;
+    left: 12%;
+    top: 18%;
     height: 65%;
     width: 65%;
 }
@@ -263,11 +263,15 @@ table.sentry {
     font-size: 1.5vw;
     fill-opacity: 55%;
 }
+    .sentry tr:hover {
+        cursor:pointer;
+        text-decoration:underline;
+    }
 
 #nxt.sentry {
     position: absolute;
     top: 28%;
-    left: 15%;
+    left: 73%;
     font-size: 1.25vw;
 }
 
@@ -278,14 +282,20 @@ table.sentry {
 #prev.sentry {
     position: absolute;
     top: 28%;
-    left: 71%;
+    left: 15%;
     font-size: 1.25vw;
 }
 
     #prev.sentry:hover {
         cursor: pointer;
+        text-decoration:underline;
     }
 
+.impactdetails {
+    position: absolute;
+    top: 40%;
+    color:white;
+}
 .footer {
     top: 94%;
     left: 19%;

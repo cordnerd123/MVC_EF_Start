@@ -1,4 +1,4 @@
-﻿@model Sentry
+﻿
 
 @{
     ViewData["Title"] = "ImpactData";
@@ -16,7 +16,7 @@
     <div id="impact" class="container">
         <div class="pgheader">Potential Earth Impact Data</div>
 
-        @{ 
+        @{
             Html.RenderPartial("_Menu");
         }
 
@@ -25,76 +25,15 @@
             events that the <a href="https://cneos.jpl.nasa.gov/sentry/">JPL Sentry System</a>
             has detected based on currently available observations.
         </div>
-        <table class="sentry">
-            <tr class="sentry">
-                <th>Designation</th>
-                <th>Date</th>
-                <th>Impact Probability</th>
-                <th>Impact Energy</th>
-            </tr>
-            <tr class="sentry">
-                <td class="sentry">29075 (1950DA)</td>
-                <td class="sentry">2880-03-16.99</td>
-                <td class="sentry">1.2e-4</td>
-                <td class="sentry">7.53e+04</td>
-            </tr>
-            <tr class="sentry">
-                <td class="sentry">101995 Bennu(1999 RQ36)</td>
-                <td class="sentry">2196-09-24.33</td>
-                <td class="sentry">9.4e-5</td>
-                <td class="sentry">1.151e+03</td>
-            </tr>
-            <tr class="sentry">
-                <td class="sentry">101995 Bennu(1999 RQ36)</td>
-                <td class="sentry">2185-09-24.59</td>
-                <td class="sentry">6.3e-5</td>
-                <td class="sentry">1.152e+03</td>
-            </tr>
-            <tr class="sentry">
-                <td class="sentry">101995 Bennu(1999 RQ36)</td>
-                <td class="sentry">2175-09-25.15</td>
-                <td class="sentry">4.1e-5</td>
-                <td class="sentry">1.151e+03</td>
-            </tr>
-            <tr class="sentry">
-                <td class="sentry">101995 Bennu(1999 RQ36)</td>
-                <td class="sentry">2196-09-24.31</td>
-                <td class="sentry">3.5e-5</td>
-                <td class="sentry">1.151e+03</td>
-            </tr>
-            <tr class="sentry">
-                <td class="sentry">101995 Bennu(1999 RQ36)</td>
-                <td class="sentry">2193-09-24.60</td>
-                <td class="sentry">2.8e-5</td>
-                <td class="sentry">1.152e+03</td>
-            </tr>
-            <tr class="sentry">
-                <td class="sentry">99942 Apophis (2004 MN4)</td>
-                <td class="sentry">2068-04-12.64</td>
-                <td class="sentry">6.7e-6</td>
-                <td class="sentry">1.151e+03</td>
-            </tr>
-            <tr class="sentry">
-                <td class="sentry">101955 Bennu (1999 RQ36)	</td>
-                <td class="sentry">2180-09-24.39</td>
-                <td class="sentry">2.0e-5</td>
-                <td class="sentry">1.150e+03</td>
-            </tr>
-            <tr class="sentry">
-                <td class="sentry">101955 Bennu (1999 RQ36)</td>
-                <td class="sentry">2185-09-24.59</td>
-                <td class="sentry">2.0e-5</td>
-                <td class="sentry">1.151e+03</td>
-            </tr>
-            <tr class="sentry">
-                <td class="sentry">(1979 XB)</td>
-                <td class="sentry">2056-12-12.90</td>
-                <td class="sentry">1.8e-7</td>
-                <td class="sentry">4.270e+04</td>
-            </tr>
-        </table>
-        <button id="nxt" class="sentry">Next Page</button>
-        <button id="prev" class="sentry">Previous Page</button>
+
+        @{
+            Html.RenderPartial("SentryTable");
+        }
+
+        @{
+            Html.RenderPartial("Details");
+        }
+
         <div id="impact" class="footer">
             This website is for entertainment purposes only and its sole purpose
             is to serve as fulfillment for USF MS BAIS requirements.

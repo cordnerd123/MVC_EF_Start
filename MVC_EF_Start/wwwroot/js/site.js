@@ -48,19 +48,15 @@ function SignConf() {
         alert('Please enter a first name')
         return;
     }
-    
-
     alert('Thanks ' + name + ' for signing up for our life-saving monthly email!')
 }
-
-function updatedb() {
-
+function SenTableNxt(n) {
+    n = n + 1;
+    window.location.href = '/ImpactData/ImpactData/' + n;
 }
-
-document.addEventListener('DOMContentLoaded', function () {
-    var ulElement = document.getElementById('links');
-    var liElement = document.createElement('li');
-    liElement.appendChild(document.createTextNode('created by main.js'));
-
-    ulElement.appendChild(liElement);
-});
+function SenTablePrv(n) {
+    if (n > 10)
+        n = n - 10;
+    else n = -1;
+    window.location.href = '/ImpactData/ImpactData/' + n;
+}

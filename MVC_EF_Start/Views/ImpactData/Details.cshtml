@@ -1,0 +1,27 @@
+﻿@model Sentry[]
+
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<!DOCTYPE html>
+
+<html>
+<body>
+
+
+    <div class="impactdetails">
+        @if (@Model[0].id != null)
+        {
+            <h4>ID Number:</h4> @Model[0].id;
+            <h4>Number:</h4> @Model[0].num;
+            <h4>Number of Impacts: </h4>@Model[0].n_imp;
+        }
+        else {
+        <h4>ID Number:</h4>
+        <h4>Number:</h4> 
+        <h4>Number of Impacts: </h4>
+        }
+    </div>
+</body>
+</html>

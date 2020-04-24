@@ -20,38 +20,25 @@ namespace MVC_EF_Start.Controllers
 
         public IActionResult Index()
         {
-            Sentry();
             return View();
         }
 
-        public PartialViewResult SignUp()
+        public ViewResult SignUp()
         {
             Person myperson = new Person();
-            return PartialView("_SignUpForm");
-        }
-
-        [HttpPost]
-        public IActionResult SignUp(Person myperson)
-        {
-            dbContext.People.Add(myperson);
-            dbContext.SaveChanges();
             return View("Index");
         }
 
-        public IActionResult Sentry()
+        [HttpPost]
+        public ViewResult SignUp(Person myperson)
         {
-            //this will prob need to be changed so as to load only a few objects or something
-            //APIHandler is a class
-            APIHandler webHandler = new APIHandler();
-            SentryObject sentryData = webHandler.GetSentryObjects();
+            if (myperson.fname == null) return View("Index");
+            if (myperson.lname == null) return View("Index");
+            if (myperson.email == null) return View("Index");
 
-            foreach (Sentry s in sentryData.data)
-            {
-                dbContext.SentryEntries.Add(s);
-            }
+            dbContext.People.Add(myperson);
             dbContext.SaveChanges();
-
-            return View(sentryData);
+            return View("Index");
         }
 
         public IActionResult AboutUs()

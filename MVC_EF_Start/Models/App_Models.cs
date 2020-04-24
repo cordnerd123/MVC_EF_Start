@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System;
+using System.Collections.Generic;
 
 namespace MVC_EF_Start.Models
 {
@@ -21,6 +23,7 @@ namespace MVC_EF_Start.Models
 
     public class Sentry
     {
+        public int num { get; set; }
         public string ip { get; set; }
         public string range { get; set; }
         public string ps_cum { get; set; }

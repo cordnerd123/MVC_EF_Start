@@ -1,4 +1,4 @@
-﻿@model Person
+﻿
 
 @{
     ViewData["Title"] = "Index";
@@ -20,12 +20,12 @@
         @{
             Html.RenderPartial("_Menu");
         }
-
-
-        @{ 
-            Html.RenderPartial("_SignUpForm");
+        
+        @{
+            Html.RenderPartial("SignUpForm");
         }
         
+
         <div class="slidecontainer">
             <div class="slide" style="background-image:url(img/Picture1.jpg)    ">
                 <p class="slidecap displaycap">
