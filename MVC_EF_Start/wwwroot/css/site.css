@@ -250,7 +250,7 @@ table.sentry {
     text-align: center;
     width: 65%;
     left: 15%;
-    top: 30%;
+    top:25%;
     border-bottom: 1px solid black;
     border-top: 1px solid black;
     border-color: black;
@@ -270,7 +270,7 @@ table.sentry {
 
 #nxt.sentry {
     position: absolute;
-    top: 28%;
+    top: 23%;
     left: 73%;
     font-size: 1.25vw;
 }
@@ -281,7 +281,7 @@ table.sentry {
 
 #prev.sentry {
     position: absolute;
-    top: 28%;
+    top: 23%;
     left: 15%;
     font-size: 1.25vw;
 }
@@ -291,11 +291,49 @@ table.sentry {
         text-decoration:underline;
     }
 
+#detailtable.sentry{
+    left:5%;
+    top:20%;
+    width:40%;
+    text-align:left;
+}
+
+.listback {
+    position: absolute;
+    top:15%;
+    left:15%;
+    color: white;
+    font-size:1.75vw;
+    text-decoration:none;
+}
+
 .impactdetails {
     position: absolute;
     top: 40%;
     color:white;
 }
+.SenFav {
+    position: absolute;
+    top: 1%;
+    right: 2%;
+    width: 20vw;
+    font-size: 1.4vw;
+    background-color: coral;
+    text-align: center;
+}
+
+    .SenFav label {
+        font-size: 1vw;
+        text-align: left;
+        font-weight: 800;
+    }
+
+    .SenFav input {
+        font-size: 1.25vw;
+        padding: 1px;
+        margin-bottom: 3px;
+    }
+
 .footer {
     top: 94%;
     left: 19%;

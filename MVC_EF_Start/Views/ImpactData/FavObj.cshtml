@@ -1,0 +1,17 @@
+﻿@model FavSentry
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<div class="SenFav">
+    Favorite this space object to be kept up-to-date on any changes!
+    <form class="SenFavForm" method="post" asp-action="SenFav">
+        <div id="objid">@Model.SentryObj.id</div>
+
+        <input asp-for=@Model.SentryObj.id value=@Model.SentryObj.id/><br />
+        <label asp-for=@Model.Person.email>Email Address:</label><br />
+        <input asp-for=@Model.Person.email /><br />
+
+        <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
+    </form>
+</div>

@@ -1,27 +1,65 @@
-﻿@model Sentry[]
+﻿@model FavSentry
 
-@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+@{
+    ViewData["Title"] = "Details";
+}
 
 <!DOCTYPE html>
 
-<html>
-<body>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Impact Data Details</title>
+    </head>
+    <body>
+        <div id="impact" class="container">
+            <div class="pgheader">Impact Data Details</div>
 
+            @{
+                Html.RenderPartial("_Menu");
+            }
 
-    <div class="impactdetails">
-        @if (@Model[0].id != null)
-        {
-            <h4>ID Number:</h4> @Model[0].id;
-            <h4>Number:</h4> @Model[0].num;
-            <h4>Number of Impacts: </h4>@Model[0].n_imp;
-        }
-        else {
-        <h4>ID Number:</h4>
-        <h4>Number:</h4> 
-        <h4>Number of Impacts: </h4>
-        }
-    </div>
-</body>
+            @{ 
+                Html.RenderPartial("FavObj");
+            }
+
+        <div class="listback"><a href="javascript:void(0);" onclick="history.go(-1);">Back to List</a></div>
+
+        <table class="sentry" id="detailtable">
+            <tr class="sentry" id="detailtable">
+                <th>Death Inducing Object Number:</th>
+                <td>@Model.SentryObj.id</td>
+            </tr>
+            <tr class="sentry" id="detailtable">
+                <th>Object Designation:</th>
+                <td>@Model.SentryObj.des</td>
+            </tr>
+            <tr class="sentry" id="detailtable">
+                <th>Palermo Technical Impact Hazard Scale:</th>
+                <td>@Model.SentryObj.ps_cum</td>
+            </tr>
+            <tr class="sentry" id="detailtable">
+                <th>Torino Impact Hazard Scale:</th>
+                <td>@Model.SentryObj.ts_max</td>
+            </tr>
+            <tr class="sentry" id="detailtable">
+                <th>Impact Probability:</th>
+                <td>@Model.SentryObj.ip</td>
+            </tr>
+            <tr class="sentry" id="detailtable">
+                <th>Kinetic Energy at Impact:</th>
+                <td>@Model.SentryObj.h</td>
+            </tr>
+            <tr class="sentry" id="detailtable">
+                <th>Object Diameter:</th>
+                <td>@Model.SentryObj.diameter</td>
+            </tr>
+            <tr class="sentry" id="detailtable">
+                <th>Velocity at Atmospheric Impact:</th>
+                <td>@Model.SentryObj.v_inf</td>
+            </tr>
+        </table>
+        </div>
+    </body>
 </html>

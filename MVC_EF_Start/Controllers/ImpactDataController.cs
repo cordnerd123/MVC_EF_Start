@@ -25,34 +25,47 @@ namespace MVC_EF_Start.Controllers
             //Sentry(); 
             if (id == 0) id = 1;
             SentryTable(id);
+
             return View();
         }
-        public PartialViewResult Details(int id)
-        {
-            Sentry[] sendetails = new Sentry[1];
 
-            sendetails[0] = dbContext.SentryEntries
-                .Where(c => c.num == id)
+        public IActionResult Details(int id)
+        {
+            FavSentry sendetails = new FavSentry();
+
+            sendetails.SentryObj = dbContext.SentryEntries
+                .Where(c => c.num == id )
                 .FirstOrDefault();
 
-            return PartialView(sendetails);
-        }//Viewbag.whatever
-        //also above updates when? below updates when?
-        
-        [HttpPost]
-        public ViewResult Details()
-        {
-            Sentry[] sendetails = new Sentry[1];
-            int id = 1;
-
-            sendetails[0] = dbContext.SentryEntries
-                .Where(c => c.num == id)
-                .FirstOrDefault();
-
-            ViewBag.Details = sendetails[0];
-
-            return View("Details");
+            return View(sendetails);
         }
+
+        [HttpPost]
+        public ActionResult SenFav(FavSentry myobj)
+        {
+            string email = myobj.Person.email;
+
+            Person myperson = dbContext.People
+                .Where(c => c.email == email)
+                .FirstOrDefault();
+
+            string id = myobj.SentryObj.id;
+
+            Sentry mysentry = dbContext.SentryEntries
+                .Where(c => c.id == id)
+                .FirstOrDefault();
+
+            FavSentry myfav = new FavSentry();
+            myfav.SentryObj = mysentry;
+            myfav.Person = myperson;                                        
+            myfav.FavSentryID = myfav.Person.personID + myfav.SentryObj.id;   //set key
+
+            dbContext.FavSentries.Add(myfav);
+            dbContext.SaveChanges();
+            ModelState.Clear();
+            return RedirectToAction("ImpactData");
+        }
+
         public PartialViewResult SentryTable(int id)
         {
             Sentry mysentry = new Sentry();

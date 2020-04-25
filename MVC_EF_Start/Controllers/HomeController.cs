@@ -30,7 +30,7 @@ namespace MVC_EF_Start.Controllers
         }
 
         [HttpPost]
-        public ViewResult SignUp(Person myperson)
+        public ActionResult SignUp(Person myperson)
         {
             if (myperson.fname == null) return View("Index");
             if (myperson.lname == null) return View("Index");
@@ -38,7 +38,8 @@ namespace MVC_EF_Start.Controllers
 
             dbContext.People.Add(myperson);
             dbContext.SaveChanges();
-            return View("Index");
+            ModelState.Clear();
+            return RedirectToAction("Index");
         }
 
         public IActionResult AboutUs()

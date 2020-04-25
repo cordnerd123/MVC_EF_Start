@@ -13,4 +13,10 @@ namespace MVC_EF_Start.Models
         public string lname { get; set; }
         public string email { get; set; }
     }
+    public class FavSentry
+    {
+        public string FavSentryID { get; set; }
+        public Person Person { get; set; }
+        public Sentry SentryObj { get; set; }
+    }
 }

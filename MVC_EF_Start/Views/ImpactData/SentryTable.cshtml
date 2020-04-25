@@ -1,8 +1,8 @@
 ﻿@model Sentry[]
 
-@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+@{ 
+    ViewBag.Title = "SentryTable";
+}
 
 <!DOCTYPE html>
 
@@ -23,15 +23,14 @@
                 <th>Impact Probability</th>
                 <th>Impact Velocity</th>
             </tr>
-
             @for (var i = 0; i < 10; i++)
              {
                 <tr class="sentry">
-                    <td><a class="link" asp-area="" asp-controller="ImpactData" asp-action="Details/@Model[i].num">@Model[i].num</a></td>
-                    <td><a class="link" asp-area="" asp-controller="ImpactData" asp-action="Details/@Model[i].num">@Model[i].fullname</a></td>
-                    <td><a class="link" asp-area="" asp-controller="ImpactData" asp-action="Details/@Model[i].num">@Model[i].range</a></td>
-                    <td><a class="link" asp-area="" asp-controller="ImpactData" asp-action="Details/@Model[i].num">@Model[i].ip</a></td>
-                    <td><a class="link" asp-area="" asp-controller="ImpactData" asp-action="Details/@Model[i].num">@Model[i].v_inf</a></td>
+                    <td> <a class="link" asp-area="" asp-controller="ImpactData" asp-action="Details/@Model[i].num">@Model[i].num</a></td>
+                    <td> <a class="link" asp-area="" asp-controller="ImpactData" asp-action="Details/@Model[i].num">@Model[i].fullname</a></td>
+                    <td> <a class="link" asp-area="" asp-controller="ImpactData" asp-action="Details/@Model[i].num">@Model[i].range</a></td>
+                    <td> <a class="link" asp-area="" asp-controller="ImpactData" asp-action="Details/@Model[i].num">@Model[i].ip</a></td>
+                    <td> <a class="link" asp-area="" asp-controller="ImpactData" asp-action="Details/@Model[i].num">@Model[i].v_inf</a></td>
                 </tr>   
              }
         </table>

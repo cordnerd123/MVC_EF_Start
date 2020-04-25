@@ -60,3 +60,11 @@ function SenTablePrv(n) {
     else n = -1;
     window.location.href = '/ImpactData/ImpactData/' + n;
 }
+function favsent() {
+    var email = document.getElementById("favemail").value;
+    var objid = document.getElementsByName("objid").value;
+
+    window.location.href = '/ImpactData/Details/SenFav' + email
+
+
+}
