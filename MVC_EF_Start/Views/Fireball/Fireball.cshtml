@@ -12,133 +12,36 @@
 
         <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-        <title>Potential Impact Data</title>
+        <title>Potential Fireball Data</title>
     </head>
     <body>
         <div id="fireball" class="container">
-            <div class="pgheader">Fireballs that impact the earth </div>
+            <div class="pgheader">Fireballs that impacted the earth </div>
 
-            @{ 
+            @{
                 Html.RenderPartial("_Menu");
             }
-             
-            <div class="pgheader2">
-                The chart below shows the most recent fireball impacts to the Earth
+
+            <div class="firedescrip">
+                The following table lists all the future impacts of fireballs in Earth
+                events that the <a href="https://cneos.jpl.nasa.gov/fireballs/">JPL Sentry System</a>
+                has detected based on currently available observations. This page wants to provide descriptive 
+                information
             </div>
-            <table class="fireball">
-                <tr class="fireball">
-                    <th>Date</th>
-                    <th>Latitude</th>
-                    <th>Longitude</th>
-                    <th>Impact Energy</th>
-                    <th>Impact-E</th>
-                </tr>
-                <tr class="fireball">
-                    <td class="fireball">2015-10-13 12:23:08</td>
-                    <td class="fireball">8.0</td>
-                    <td class="fireball">52.5</td>
-                    <td class="fireball">0.3</td>
-                    <td class="fireball">0.082</td>
-                </tr>
-                <tr class="fireball">
-                    <td class="fireball">2015-10-11 00:07:46</td>
-                    <td class="fireball">55.4</td>
-                    <td class="fireball">18.8</td>
-                    <td class="fireball">3.0</td>
-                    <td class="fireball">0.1</td>
-                </tr>
-                <tr class="fireball">
-                    <td class="fireball">2015-10-10 09:57:51</td>
-                    <td class="fireball">51</td>
-                    <td class="fireball">21.1</td>
-                    <td class="fireball">3.6</td>
-                    <td class="fireball">0.12</td>
-                </tr>
-                <tr class="fireball">
-                    <td class="fireball">2019-12-06 10:19:57</td>
-                    <td class="fireball">3.3</td>
-                    <td class="fireball">37.7</td>
-                    <td class="fireball">4.6</td>
-                    <td class="fireball">0.15</td>
-                </tr>
-                <tr class="fireball">
-                    <td class="fireball">2019-12-11 01:19:11</td>
-                    <td class="fireball">47.7</td>
-                    <td class="fireball">161.7</td>
-                    <td class="fireball">3.9</td>
-                    <td class="fireball">0.13</td>
-                </tr>
-                <tr class="fireball">
-                    <td class="fireball">2019-12-21 14:30:52</td>
-                    <td class="fireball">56.5</td>
-                    <td class="fireball">147.6</td>
-                    <td class="fireball">6.5</td>
-                    <td class="fireball">0.21</td>
-                </tr>
-                <tr class="fireball">
-                    <td class="fireball">2020-01-06 11:03:50</td>
-                    <td class="fireball">70.4</td>
-                    <td class="fireball">17.5</td>
-                    <td class="fireball">4.5</td>
-                    <td class="fireball">0.15</td>
-                </tr>
-                <tr class="fireball">
-                    <td class="fireball">2020-01-15 06:31:39</td>
-                    <td class="fireball">23.7</td>
-                    <td class="fireball">125.2</td>
-                    <td class="fireball">19.6</td>
-                    <td class="fireball">0.55</td>
-                </tr>
-                <tr class="fireball">
-                    <td class="fireball">2020-01-16 09:31:42</td>
-                    <td class="fireball">71.7</td>
-                    <td class="fireball">116.4</td>
-                    <td class="fireball">5.9</td>
-                    <td class="fireball">0.19</td>
-                </tr>
-                <tr class="fireball">
-                    <td class="fireball">2020-01-17 21:29:49</td>
-                    <td class="fireball">19.4</td>
-                    <td class="fireball">66.0</td>
-                    <td class="fireball">9.7</td>
-                    <td class="fireball">0.29</td>
-                </tr>
-                <tr class="fireball">
-                    <td class="fireball">2020-01-21 20:07:44</td>
-                    <td class="fireball">33.1</td>
-                    <td class="fireball">34.3</td>
-                    <td class="fireball">2.8</td>
-                    <td class="fireball">0.098</td>
-                </tr>
-                <tr class="fireball">
-                    <td class="fireball">2020-01-24 11:13:31</td>
-                    <td class="fireball">28.0</td>
-                    <td class="fireball">35.8</td>
-                    <td class="fireball">2.6</td>
-                    <td class="fireball">0.092</td>
-                </tr>
-                <tr>
-                    <td id="scatterplot" class="scatterclass" colspan="5"></td>
-                    <script>
-                        scatterplot = document.getElementById('scatterplot');
-                        Plotly.newPlot(scatterplot, [{
-                            x: ['2015-01-01', '2016-01-01', '2017-01-01', '2018-01-01', '2019-01-01'],
-                            y: [0.6, 1.8, 0.9, 2, 2.5]
-                        }], {
-                            margin: { t: 0 }
-                        });
-                    </script>
-                </tr>
-            </table>
-            <button id="nxt" class="sentry">Next Page</button>
-            <button id="prev" class="sentry">Previous Page</button>
+
+            @{
+                Html.RenderPartial("FireballTable");
+            }
+
+            @{
+                Html.RenderPartial("DetailsFire");
+            }
+
             <div id="impact" class="footer">
                 This website is for entertainment purposes only and its sole purpose
                 is to serve as fulfillment for USF MS BAIS requirements.
                 <br />
-                This picture is fictional and represents a fireball in space.
+                This is a fictional image depicting an asteroid headed for Earth
                 <br />
             </div>
         </div>
-    </body>
-    </html>
