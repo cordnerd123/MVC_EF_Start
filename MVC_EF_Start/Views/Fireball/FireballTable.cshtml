@@ -1,0 +1,39 @@
+﻿@model Fireball[]
+
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potential Impact Data</title>
+</head>
+    <body>
+        <button id="nxt" class="fireball" onclick="FireTableNxt(@Model[9].chifre)">Next Page</button>
+        <button id="prev" class="fireball" onclick="FireTablePrv(@Model[0].chifre)">Previous Page</button>
+        <table class="fireball">
+            <tr class="fireball">
+                <th></th>
+                <th>Name of the Fireball</th>
+                <th>Score based on the km</th>
+                <th>Last time runned</th>
+                <th>Size of its Arc</th>
+            </tr>
+
+            @for (var i = 0; i < 10; i++)
+             {
+                <tr class="fireball">
+                    <td><a class="link" asp-area="" asp-controller="ImpactData" asp-action="Details/@Model[i].chifre">@Model[i].chifre</a></td>
+                    <td><a class="link" asp-area="" asp-controller="ImpactData" asp-action="Details/@Model[i].chifre">@Model[i].objectName</a></td>
+                    <td><a class="link" asp-area="" asp-controller="ImpactData" asp-action="Details/@Model[i].chifre">@Model[i].neo1kmScore</a></td>
+                    <td><a class="link" asp-area="" asp-controller="ImpactData" asp-action="Details/@Model[i].chifre">@Model[i].lastRun</a></td>
+                    <td><a class="link" asp-area="" asp-controller="ImpactData" asp-action="Details/@Model[i].chifre">@Model[i].arc</a></td>
+                </tr>   
+             }
+        </table>
+    </body>
+</html>
