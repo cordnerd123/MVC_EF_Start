@@ -76,7 +76,8 @@ namespace MVC_EF_Start.Controllers
             dbContext.FavSentries.Add(myfav);
             dbContext.SaveChanges();
             ModelState.Clear();
-            return RedirectToAction("ImpactData");
+            TempData["message"] = "You successfully favorited this object!";
+            return RedirectToAction("Details/" + mysentry.num);
         }
 
         public PartialViewResult SentryTable(int id)

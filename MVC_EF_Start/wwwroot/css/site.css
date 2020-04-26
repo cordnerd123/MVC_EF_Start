@@ -50,6 +50,13 @@ html {
 #duopic.container2 {
     background-image: url(../img/profilepic.png);
     left: 0%;
+ 
+}
+#erd.container2 {
+    background-image: url(../img/ERD.jpeg);
+    position:absolute;
+    left: 0%;
+    top:95%;
 }
 
 .container3 {
@@ -445,6 +452,13 @@ table.fireball {
     left:23.5%;
     font-size:1.75vw;
 }
+.aboutushdr{
+    position:absolute;
+    color:white;
+    top:50%;
+    left:1%;
+    font-size:1.25vw;
+}
 
 @media screen and (max-width: 600px) {
     .container {
@@ -565,6 +579,7 @@ table.fireball {
     }
 
     /*about us table*/
+
     table.aboutus {
         position: absolute;
         text-align: center;

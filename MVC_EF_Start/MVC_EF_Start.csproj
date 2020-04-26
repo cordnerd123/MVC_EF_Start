@@ -2,6 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <StartupObject>MVC_EF_Start.Program</StartupObject>
+    <ApplicationIcon />
+    <Win32Resource />
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
 

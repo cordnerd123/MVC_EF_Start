@@ -67,7 +67,8 @@ namespace MVC_EF_Start.Controllers
             dbContext.FavFireballs.Add(myfav);
             dbContext.SaveChanges();
             ModelState.Clear();
-            return RedirectToAction("Fireball");
+            TempData["message"] = "You successfully favorited this object!";
+            return RedirectToAction("Details/" + myfire.fnum);
         }
 
         public PartialViewResult FireballTable(int id)
