@@ -54,17 +54,22 @@ function SenTableNxt(n) {
     n = n + 1;
     window.location.href = '/ImpactData/ImpactData/' + n;
 }
+function FireTableNxt(n) {
+    n = n + 1;
+    window.location.href = '/Fireball/Fireball/' + n;
+}
 function SenTablePrv(n) {
     if (n > 10)
         n = n - 10;
     else n = -1;
     window.location.href = '/ImpactData/ImpactData/' + n;
 }
-function favsent() {
-    var email = document.getElementById("favemail").value;
-    var objid = document.getElementsByName("objid").value;
-
-    window.location.href = '/ImpactData/Details/SenFav' + email
-
-
+function FireTablePrv(n) {
+    if (n > 10)
+        n = n - 10;
+    else n = -1;
+    window.location.href = '/Fireball/Fireball/' + n;
+}
+function RefrshSen() {
+    
 }

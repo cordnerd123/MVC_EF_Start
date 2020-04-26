@@ -16,25 +16,21 @@
     </head>
     <body>
         <div id="fireball" class="container">
-            <div class="pgheader">Fireballs that impacted the earth </div>
+            <div class="pgheader">NASA Scout Information </div>
 
             @{
                 Html.RenderPartial("_Menu");
             }
 
-            <div class="firedescrip">
+            <div class="sendescrip">
                 The following table lists all the future impacts of fireballs in Earth
                 events that the <a href="https://cneos.jpl.nasa.gov/fireballs/">JPL Sentry System</a>
-                has detected based on currently available observations. This page wants to provide descriptive 
+                has detected based on currently available observations. This page wants to provide descriptive
                 information
             </div>
 
             @{
                 Html.RenderPartial("FireballTable");
-            }
-
-            @{
-                Html.RenderPartial("DetailsFire");
             }
 
             <div id="impact" class="footer">
@@ -45,3 +41,6 @@
                 <br />
             </div>
         </div>
+    </body>
+    </html>
+

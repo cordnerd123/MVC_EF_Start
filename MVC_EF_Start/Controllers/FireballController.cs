@@ -18,62 +18,80 @@ namespace MVC_EF_Start.Controllers
             dbContext = context;
         }
 
-        public IActionResult Fireball(int moid)
+        public IActionResult Fireball(int fnum)
         {
-            //Fireball(); 
-            if (moid == 0) moid = 1;
-            FireballTable(moid);
+            LoadFireball();
+            if (fnum == 0) fnum= 1;
+            FireballTable(fnum);
             return View();
         }
-        public PartialViewResult Details(int moid)
+
+        public IActionResult Details(int id)
         {
-            Fireball[] firedetails = new Fireball[1];
+            ViewBag.Message = TempData["message"];
+            FavFire firedetails = new FavFire();
 
-            firedetails[0] = dbContext.FireballEntries
-                .Where(c => c.chifre == moid)
+            firedetails.FireObj = dbContext.FireballEntries
+                .Where(c => c.fnum == id)
                 .FirstOrDefault();
-
+            
             return PartialView(firedetails);
-        }//Viewbag.whatever
-         //also above updates when? below updates when?
+        }
 
         [HttpPost]
-        public ViewResult Details()
+        public ActionResult FireFav(FavFire myobj)
         {
-            Fireball[] firedetails = new Fireball[1];
-            int moid = 1;
+            string email = myobj.Person.email;
 
-            firedetails[0] = dbContext.FireballEntries
-                .Where(c => c.chifre == moid)
+            Person myperson = dbContext.People
+                .Where(c => c.email == email)
                 .FirstOrDefault();
 
-            ViewBag.Details = firedetails[0];
+            string fobjname = myobj.FireObj.objectName;
 
-            return View("Details");
+            Fireball myfire = dbContext.FireballEntries
+                .Where(c => c.objectName == fobjname)
+                .FirstOrDefault();
+
+            if (myperson == null)
+            {
+                TempData["message"] = "You do not have an account. You need to Sign up first";
+                return RedirectToAction("Details/" + myfire.fnum);
+            }
+
+            FavFire myfav = new FavFire();
+            myfav.FireObj = myfire;
+            myfav.Person = myperson;
+            myfav.FavFireID = myfav.Person.personID + myfav.FireObj.objectName;
+
+            dbContext.FavFireballs.Add(myfav);
+            dbContext.SaveChanges();
+            ModelState.Clear();
+            return RedirectToAction("Fireball");
         }
-        public PartialViewResult FireballTable(int moid)
+
+        public PartialViewResult FireballTable(int id)
         {
             Fireball myfireball = new Fireball();
-            Fireball[] mytable1 = new Fireball[10];
+            Fireball[] mytable = new Fireball[10];
 
             int max = dbContext.FireballEntries.Count();
 
-            if (moid == -1) moid = max - 9;
-            else if (moid > max) moid = 1;
+            if (id == -1) id = max - 9;
+            else if (id > max) id = 1;
 
             for (int x = 0; x < 10; x++)
             {
                 myfireball = dbContext.FireballEntries
-                    .Where(c => c.chifre == moid)
+                    .Where(c => c.fnum == id)
                     .FirstOrDefault();
-                mytable1[x] = myfireball;
-                moid++;
+                mytable[x] = myfireball;
+                id++;
             }
-
-            return PartialView(mytable1);
+            return PartialView(mytable);
         }
 
-       /* public void Fireball()
+        public void LoadFireball()
         {
             FireballHandler webHandler = new FireballHandler();
             FireballObject fireballData = webHandler.GetFireballObjects();
@@ -82,21 +100,23 @@ namespace MVC_EF_Start.Controllers
             foreach (Fireball s in fireballData.data)
             {
                 IQueryable<Fireball> firetest = dbContext.FireballEntries
-                        .Where(c => c.moid == s.moid);
+                        .Where(c => c.objectName == s.objectName);
 
                 if (firetest == s | firetest.Count() == 0)
                 {
-                    s.chifre = x;
+                    s.fnum = x;
                     x++;
                     dbContext.FireballEntries.Add(s);
                 }
+                else
+                {
+                    s.fnum = x;
+                    x++;
+                    dbContext.FireballEntries.Update(s);
+                }
             }
             dbContext.SaveChanges();
-            */
         }
-
-
-
-
     }
+}
 

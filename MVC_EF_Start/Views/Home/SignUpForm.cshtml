@@ -6,6 +6,8 @@
     <div class="signup">
         Sign up for our weekly newsletter to stay informed on the latest planetary destruction news!
         <form class="signform" method="post" asp-action="SignUp">
+
+
             <label asp-for="fname">First Name:</label><br />
             <input asp-for="fname" /><br />
             <label asp-for="lname">Last Name:</label><br />
@@ -13,5 +15,7 @@
             <label asp-for="email">Email Address:</label><br />
             <input asp-for="email" /><br />
             <button type="submit" class="btn btn-primary" onclick="SignConf()">Submit</button>
+            <button type="submit" class="btn" asp-action="DelPerson">Delete</button>
         </form>
+        <h4>@ViewBag.Message</h4>
     </div>

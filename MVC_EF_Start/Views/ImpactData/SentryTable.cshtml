@@ -15,6 +15,11 @@
     <body>
         <button id="nxt" class="sentry" onclick="SenTableNxt(@Model[9].num)">Next Page</button>
         <button id="prev" class="sentry" onclick="SenTablePrv(@Model[0].num)">Previous Page</button>
+        <form asp-action="ImpactData/-9">
+            <button id="refresh" class="sentry" type="submit" onclick="RefrshSen"> Refresh Data</button>
+            <div id="updatetime" class="sentry">@ViewBag.Message</div>
+        </form>
+        <div class="tblhdr"> Click on an item to view it's detail</div>
         <table class="sentry">
             <tr class="sentry">
                 <th></th>

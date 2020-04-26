@@ -1,0 +1,22 @@
+﻿@model FavFire
+
+@{ 
+    ViewBag.Title = "FavObj";
+}
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<div class="SenFav">
+    Favorite this space object to be kept up-to-date on any changes!
+    <form class="SenFavForm" method="post" asp-action="FireFav">
+        <div id="objid">@Model.FireObj.objectName</div>
+
+        <input asp-for=@Model.FireObj.objectName value=@Model.FireObj.objectName/><br />
+        <label asp-for=@Model.Person.email>Email Address:</label><br />
+        <input asp-for=@Model.Person.email /><br />
+
+        <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
+    </form>
+    <h2>@ViewBag.Message</h2>
+</div>

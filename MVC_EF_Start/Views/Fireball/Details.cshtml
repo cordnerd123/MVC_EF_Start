@@ -1,0 +1,50 @@
+﻿@model FavFire
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script src="~/js/site.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <title>Details</title>
+</head>
+<body>
+    <div id="fireball" class="container">
+        <div class="pgheader">NASA Scout Details</div>
+
+        @{
+            Html.RenderPartial("_Menu");
+        }
+
+        @{
+            Html.RenderPartial("FavObj");
+        }
+
+        <div class="listback"><a href="javascript:void(0);" onclick="history.go(-1);">Back to List</a></div>
+
+        <table class="sentry" id="detailtable">
+            <tr class="sentry" id="detailtable">
+                <th>Death Inducing Object Number:</th>
+                <td>@Model.FireObj.fnum</td>
+            </tr>
+            <tr class="sentry" id="detailtable">
+                <th>Object Designation:</th>
+                <td>@Model.FireObj.objectName</td>
+            </tr>
+            <tr class="sentry" id="detailtable">
+                <th>Velocity:</th>
+                <td>@Model.FireObj.vInf</td>
+            </tr>
+            <tr class="sentry" id="detailtable">
+                <th>Date of Last Update:</th>
+                <td>@Model.FireObj.lastRun</td>
+            </tr>
+        </table>
+
+    </div>
+</body>
+</html>

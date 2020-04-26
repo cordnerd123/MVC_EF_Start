@@ -22,8 +22,16 @@ namespace MVC_EF_Start.Controllers
 
         public IActionResult ImpactData(int id)
         {
-            //Sentry(); 
             if (id == 0) id = 1;
+            else if (id == -9)
+            {
+                Sentry();
+                id = 1;
+                ViewBag.Message = "Sentry Data was refreshed as of " + DateTime.Now;
+            }
+
+            if (dbContext.SentryEntries.Count() < 2) Sentry();
+
             SentryTable(id);
 
             return View();
@@ -31,6 +39,7 @@ namespace MVC_EF_Start.Controllers
 
         public IActionResult Details(int id)
         {
+            ViewBag.Message = TempData["message"];
             FavSentry sendetails = new FavSentry();
 
             sendetails.SentryObj = dbContext.SentryEntries
@@ -54,6 +63,12 @@ namespace MVC_EF_Start.Controllers
             Sentry mysentry = dbContext.SentryEntries
                 .Where(c => c.id == id)
                 .FirstOrDefault();
+
+            if (myperson == null)
+            {
+                TempData["message"] = "You do not have an account. You need to Sign up first";
+                return RedirectToAction("Details/" + mysentry.num);
+            }
 
             FavSentry myfav = new FavSentry();
             myfav.SentryObj = mysentry;
@@ -104,6 +119,12 @@ namespace MVC_EF_Start.Controllers
                     s.num = x;
                     x++;
                     dbContext.SentryEntries.Add(s);
+                }
+                else
+                {
+                    s.num = x;
+                    x++;
+                    dbContext.SentryEntries.Update(s);
                 }
             }
             dbContext.SaveChanges();

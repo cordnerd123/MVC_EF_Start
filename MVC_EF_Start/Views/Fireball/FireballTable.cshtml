@@ -13,10 +13,11 @@
     <title>Potential Impact Data</title>
 </head>
     <body>
-        <button id="nxt" class="fireball" onclick="FireTableNxt(@Model[9].chifre)">Next Page</button>
-        <button id="prev" class="fireball" onclick="FireTablePrv(@Model[0].chifre)">Previous Page</button>
-        <table class="fireball">
-            <tr class="fireball">
+        <button id="nxt" class="fireball" onclick="FireTableNxt(@Model[9].fnum)">Next Page</button>
+        <button id="prev" class="fireball" onclick="FireTablePrv(@Model[0].fnum)">Previous Page</button>
+        <div class="tblhdr"> Click on an item to view it's detail</div>
+        <table class="sentry">
+            <tr class="sentry">
                 <th></th>
                 <th>Name of the Fireball</th>
                 <th>Score based on the km</th>
@@ -26,12 +27,12 @@
 
             @for (var i = 0; i < 10; i++)
              {
-                <tr class="fireball">
-                    <td><a class="link" asp-area="" asp-controller="ImpactData" asp-action="Details/@Model[i].chifre">@Model[i].chifre</a></td>
-                    <td><a class="link" asp-area="" asp-controller="ImpactData" asp-action="Details/@Model[i].chifre">@Model[i].objectName</a></td>
-                    <td><a class="link" asp-area="" asp-controller="ImpactData" asp-action="Details/@Model[i].chifre">@Model[i].neo1kmScore</a></td>
-                    <td><a class="link" asp-area="" asp-controller="ImpactData" asp-action="Details/@Model[i].chifre">@Model[i].lastRun</a></td>
-                    <td><a class="link" asp-area="" asp-controller="ImpactData" asp-action="Details/@Model[i].chifre">@Model[i].arc</a></td>
+                <tr class="sentry">
+                    <td><a class="link" asp-area="" asp-controller="Fireball" asp-action="Details/@Model[i].fnum">@Model[i].fnum</a></td>
+                    <td><a class="link" asp-area="" asp-controller="Fireball" asp-action="Details/@Model[i].fnum">@Model[i].objectName</a></td>
+                    <td><a class="link" asp-area="" asp-controller="Fireball" asp-action="Details/@Model[i].fnum">@Model[i].neo1kmScore</a></td>
+                    <td><a class="link" asp-area="" asp-controller="Fireball" asp-action="Details/@Model[i].fnum">@Model[i].lastRun</a></td>
+                    <td><a class="link" asp-area="" asp-controller="Fireball" asp-action="Details/@Model[i].fnum">@Model[i].arc</a></td>
                 </tr>   
              }
         </table>

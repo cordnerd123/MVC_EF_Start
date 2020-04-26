@@ -8,6 +8,7 @@ namespace MVC_EF_Start.Models
 {
     public class Person
     {
+        [Key]
         public int personID { get; set; }
         public string fname { get; set; }
         public string lname { get; set; }

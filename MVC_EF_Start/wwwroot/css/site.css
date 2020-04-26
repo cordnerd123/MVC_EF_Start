@@ -89,7 +89,7 @@ html {
 .pgheader3 {
     width: fit-content;
     position: absolute;
-    top: 23%;
+    top: 20%;
     left: 16%;
     background-image: url(../img/pinkbar.png);
     font-family: 'Agency FB';
@@ -132,15 +132,25 @@ html {
 
 }
 /*email signup on home*/
+.signuphdr{
+    position: absolute;
+    top:15%;
+    left: 11%;
+    font-size: 1.5vw;
+    color:white;
+}
 .signup {
     position: absolute;
-    top: 1%;
-    right: 2%;
-    width: 20vw;
+    top: 20%;
+    Left: 18%;
+    width: 40vw;
     font-size: 1.4vw;
     background-color: coral;
     text-align: center;
 }
+    #top.signup{
+        text-align:left;
+    }
 
     .signup label {
         font-size: 1vw;
@@ -153,7 +163,6 @@ html {
         padding: 1px;
         margin-bottom: 3px;
     }
-
 /* slide show on home*/
 .slidecontainer {
     background-color: black;
@@ -244,6 +253,15 @@ html {
     width: 65%;
     background-color: lightgray;
 }
+
+.tblhdr {
+    position: absolute;
+    text-align: center;
+    top: 20%;
+    left:15%;
+    color: white;
+    font-size:1.75vw;
+}
 /*Sentry*/
 table.sentry {
     position: absolute;
@@ -290,6 +308,19 @@ table.sentry {
         cursor: pointer;
         text-decoration:underline;
     }
+#refresh.sentry{
+    position: absolute;
+    top:23%;
+    left:25%;
+    font-size:1.25vw;
+}
+#updatetime.sentry{
+    position: absolute;
+    top:23%;
+    left:34%;
+    font-size:1.25vw;
+    color:white;
+}
 
 #detailtable.sentry{
     left:5%;
@@ -300,8 +331,8 @@ table.sentry {
 
 .listback {
     position: absolute;
-    top:15%;
-    left:15%;
+    top:17%;
+    left:5%;
     color: white;
     font-size:1.75vw;
     text-decoration:none;
@@ -351,13 +382,14 @@ table.sentry {
 #fireball.footer {
     color: white;
 }
+
 /*fireball table*/
 table.fireball {
     position: absolute;
     text-align: center;
     width: 65%;
     left: 15%;
-    top: 30%;
+    top: 25%;
     border-bottom: 1px solid black;
     border-top: 1px solid black;
     border-color: cornflowerblue;
@@ -378,8 +410,8 @@ table.fireball {
 
 #nxt.fireball {
     position: absolute;
-    top: 68%;
-    left: 15%;
+    top: 23%;
+    left: 72.5%;
     font-size: 1.35vw;
 }
 
@@ -389,8 +421,8 @@ table.fireball {
 
 #prev.fireball {
     position: absolute;
-    top: 68%;
-    left: 85%;
+    top: 23%;
+    left: 15%;
     font-size: 1.35vw;
 }
 

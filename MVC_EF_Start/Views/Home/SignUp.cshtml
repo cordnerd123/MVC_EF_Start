@@ -1,0 +1,46 @@
+﻿@model Person
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SignUp</title>
+    </head>
+    <body>
+        <div id="index" class="container">
+            <div class="pgheader">Sign-Up or Modify your info</div>
+
+            @{
+                Html.RenderPartial("_Menu");
+            }
+
+        <div class="signuphdr">
+            Sign-up or modify your info to receive our weekly newsletter and stay informed on the latest planetary destruction news!
+        </div>
+
+            <div class="signup" id="top">
+                <ul>
+                    <li>Enter your name and email and click 'Submit' to sign up.</li>
+                    <li>Enter your current email address on file and click 'Modify' to look up your info. Then make any changes then click 'Submit'</li>
+                    <li>To delete your info, enter your current email address and click 'Modify', then click 'Delete'.</li>
+                </ul>
+    
+                <form class="signform" method="post" asp-action="SignUp">
+                    <label asp-for="personID">Person ID:</label><br />
+                    <input readonly asp-for="personID" value=@Model.personID/> <br />
+                    <label asp-for="fname">First Name:</label><br />
+                    <input asp-for="fname" value=@Model.fname /><br />
+                    <label asp-for="lname">Last Name:</label> <br />
+                    <input asp-for="lname" value=@Model.lname /><br />
+                    <label asp-for="email">Email Address:</label><br />
+                    <input asp-for="email" value=@Model.email /><br />
+                    <button type="submit" class="btn btn-primary" onclick="SignConf()">Submit</button>
+                    <button type="submit" class="btn" asp-action="DelPerson">Delete</button>
+                    <button type="submit" class="btn" asp-action="ModPerson">Modify</button>
+                </form>
+                <h4>@ViewBag.Message</h4>
+            </div>
+        </div>
+    </body>
+</html>
