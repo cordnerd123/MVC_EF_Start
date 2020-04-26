@@ -10,31 +10,48 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <title>Potential Impact Data</title>
 </head>
-    <body>
-        <button id="nxt" class="fireball" onclick="FireTableNxt(@Model[9].fnum)">Next Page</button>
-        <button id="prev" class="fireball" onclick="FireTablePrv(@Model[0].fnum)">Previous Page</button>
-        <div class="tblhdr"> Click on an item to view it's detail</div>
-        <table class="sentry">
+<body>
+    <button id="nxt" class="fireball" onclick="FireTableNxt(@Model[9].fnum)">Next Page</button>
+    <button id="prev" class="fireball" onclick="FireTablePrv(@Model[0].fnum)">Previous Page</button>
+    <div class="tblhdr"> Click on an item to view it's detail</div>
+    <table class="sentry">
+        <tr class="sentry">
+            <th></th>
+            <th>Name of the Fireball</th>
+            <th>Score based on the km</th>
+            <th>Last time runned</th>
+            <th>Size of its Arc</th>
+        </tr>
+
+        @for (var i = 0; i < 10; i++)
+        {
             <tr class="sentry">
-                <th></th>
-                <th>Name of the Fireball</th>
-                <th>Score based on the km</th>
-                <th>Last time runned</th>
-                <th>Size of its Arc</th>
+                <td><a class="link" asp-area="" asp-controller="Fireball" asp-action="Details/@Model[i].fnum">@Model[i].fnum</a></td>
+                <td><a class="link" asp-area="" asp-controller="Fireball" asp-action="Details/@Model[i].fnum">@Model[i].objectName</a></td>
+                <td><a class="link" asp-area="" asp-controller="Fireball" asp-action="Details/@Model[i].fnum">@Model[i].neo1kmScore</a></td>
+                <td><a class="link" asp-area="" asp-controller="Fireball" asp-action="Details/@Model[i].fnum">@Model[i].lastRun</a></td>
+                <td><a class="link" asp-area="" asp-controller="Fireball" asp-action="Details/@Model[i].fnum">@Model[i].arc</a></td>
             </tr>
 
-            @for (var i = 0; i < 10; i++)
-             {
-                <tr class="sentry">
-                    <td><a class="link" asp-area="" asp-controller="Fireball" asp-action="Details/@Model[i].fnum">@Model[i].fnum</a></td>
-                    <td><a class="link" asp-area="" asp-controller="Fireball" asp-action="Details/@Model[i].fnum">@Model[i].objectName</a></td>
-                    <td><a class="link" asp-area="" asp-controller="Fireball" asp-action="Details/@Model[i].fnum">@Model[i].neo1kmScore</a></td>
-                    <td><a class="link" asp-area="" asp-controller="Fireball" asp-action="Details/@Model[i].fnum">@Model[i].lastRun</a></td>
-                    <td><a class="link" asp-area="" asp-controller="Fireball" asp-action="Details/@Model[i].fnum">@Model[i].arc</a></td>
-                </tr>   
-             }
-        </table>
-    </body>
+        }
+        <tr>
+            <td id="scatterplot" class="scatterclass" colspan="5"></td>
+            <script>
+                scatterplot = document.getElementById('scatterplot');
+                Plotly.newPlot(scatterplot, [{
+                    x: ['2015-01-01', '2016-01-01', '2017-01-01', '2018-01-01', '2019-01-01'],
+                    y: [0.6, 1.8, 0.9, 2, 2.5]
+                }], {
+                    margin: { t: 0 }
+                });
+            </script>
+        </tr>
+    </table>
+    <div class="chartfooter">
+        The chart above shows the most recent fireball impacts to the Earth
+    </div>
+</body>
 </html>

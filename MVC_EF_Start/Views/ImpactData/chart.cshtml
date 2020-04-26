@@ -1,0 +1,45 @@
+﻿@model ChartModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+    <title>chart</title>
+</head>
+<body>
+    <div class="chart">
+        <canvas id="barchart"></canvas>
+        <script>
+                new Chart(document.getElementById("barchart"), {
+                    type: '@Model.ChartType',
+                    data: {
+                        labels: [@Html.Raw(@Model.Labels)],
+                        
+                    datasets: [
+                        {
+                        label: "# of Impacts",
+                        backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850","#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+                        data: [@Model.Data]
+                        }
+                    ]
+                    },
+                    options: {
+                        legend: { display: false },
+                        title: {
+                            display: true,
+                            text: '@Model.Title',
+                            fontSize: 20,
+                            fontColor: 'white'
+                        }
+                    }
+                });
+        </script>
+    </div>
+</body>
+</html>

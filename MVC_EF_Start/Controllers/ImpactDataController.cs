@@ -31,9 +31,7 @@ namespace MVC_EF_Start.Controllers
             }
 
             if (dbContext.SentryEntries.Count() < 2) Sentry();
-
             SentryTable(id);
-
             return View();
         }
 
@@ -83,8 +81,10 @@ namespace MVC_EF_Start.Controllers
 
         public PartialViewResult SentryTable(int id)
         {
-            Sentry mysentry = new Sentry();
             Sentry[] mytable = new Sentry[10];
+            ChartModel mychart = new ChartModel();
+            string[] labels = new string[10];
+            int[] data = new int[10];
 
             int max = dbContext.SentryEntries.Count();
 
@@ -93,14 +93,25 @@ namespace MVC_EF_Start.Controllers
 
             for (int x = 0; x < 10; x++)
             {
-                mysentry = dbContext.SentryEntries
+                Sentry mysentry = dbContext.SentryEntries
                     .Where(c => c.num == id)
                     .FirstOrDefault();
+
                 mytable[x] = mysentry;
+                labels[x] = mysentry.des;
+                data[x] =  Convert.ToInt32(mysentry.n_imp);
+
                 id++;
             }
 
-            return PartialView(mytable);
+            mychart.SenObj = mytable;
+            mychart.Labels = String.Join(",", labels.Select(d=>"'" + d + "'"));
+            mychart.Data = String.Join(",", data.Select(d => d));
+            mychart.ChartType = "bar";
+            mychart.Title = "Number of Potential Impacts per Designation";
+
+
+            return PartialView(mychart);
         }
 
         public void Sentry()

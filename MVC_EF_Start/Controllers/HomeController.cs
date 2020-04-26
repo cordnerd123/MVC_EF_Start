@@ -22,6 +22,10 @@ namespace MVC_EF_Start.Controllers
         {
             return View();
         }
+        public IActionResult chart()
+        {
+            return View();
+        }
 
         public IActionResult SignUp()
         {

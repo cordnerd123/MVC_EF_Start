@@ -263,6 +263,15 @@ html {
     font-size:1.75vw;
 }
 /*Sentry*/
+.chart{
+    position:absolute;
+    font-size: 2vw;
+    width:70%;
+    height:50%;
+    top:49%;
+    left:14%;
+}
+
 table.sentry {
     position: absolute;
     text-align: center;
@@ -303,11 +312,11 @@ table.sentry {
     left: 15%;
     font-size: 1.25vw;
 }
-
     #prev.sentry:hover {
         cursor: pointer;
         text-decoration:underline;
     }
+
 #refresh.sentry{
     position: absolute;
     top:23%;
@@ -429,6 +438,13 @@ table.fireball {
     #prev.fireball:hover {
         cursor: cell;
     }
+.chartfooter{
+    position:absolute;
+    color:white;
+    top:80%;
+    left:23.5%;
+    font-size:1.75vw;
+}
 
 @media screen and (max-width: 600px) {
     .container {

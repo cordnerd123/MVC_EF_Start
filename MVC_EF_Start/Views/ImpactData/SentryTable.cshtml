@@ -1,4 +1,4 @@
-﻿@model Sentry[]
+﻿@model ChartModel
 
 @{ 
     ViewBag.Title = "SentryTable";
@@ -13,8 +13,8 @@
     <title>Potential Impact Data</title>
 </head>
     <body>
-        <button id="nxt" class="sentry" onclick="SenTableNxt(@Model[9].num)">Next Page</button>
-        <button id="prev" class="sentry" onclick="SenTablePrv(@Model[0].num)">Previous Page</button>
+        <button id="nxt" class="sentry" onclick="SenTableNxt(@Model.SenObj[9].num)">Next Page</button>
+        <button id="prev" class="sentry" onclick="SenTablePrv(@Model.SenObj[0].num)">Previous Page</button>
         <form asp-action="ImpactData/-9">
             <button id="refresh" class="sentry" type="submit" onclick="RefrshSen"> Refresh Data</button>
             <div id="updatetime" class="sentry">@ViewBag.Message</div>
@@ -31,11 +31,11 @@
             @for (var i = 0; i < 10; i++)
              {
                 <tr class="sentry">
-                    <td> <a class="link" asp-area="" asp-controller="ImpactData" asp-action="Details/@Model[i].num">@Model[i].num</a></td>
-                    <td> <a class="link" asp-area="" asp-controller="ImpactData" asp-action="Details/@Model[i].num">@Model[i].fullname</a></td>
-                    <td> <a class="link" asp-area="" asp-controller="ImpactData" asp-action="Details/@Model[i].num">@Model[i].range</a></td>
-                    <td> <a class="link" asp-area="" asp-controller="ImpactData" asp-action="Details/@Model[i].num">@Model[i].ip</a></td>
-                    <td> <a class="link" asp-area="" asp-controller="ImpactData" asp-action="Details/@Model[i].num">@Model[i].v_inf</a></td>
+                    <td> <a class="link" asp-area="" asp-controller="ImpactData" asp-action="Details/@Model.SenObj[i].num">@Model.SenObj[i].num</a></td>
+                    <td> <a class="link" asp-area="" asp-controller="ImpactData" asp-action="Details/@Model.SenObj[i].num">@Model.SenObj[i].fullname</a></td>
+                    <td> <a class="link" asp-area="" asp-controller="ImpactData" asp-action="Details/@Model.SenObj[i].num">@Model.SenObj[i].range</a></td>
+                    <td> <a class="link" asp-area="" asp-controller="ImpactData" asp-action="Details/@Model.SenObj[i].num">@Model.SenObj[i].ip</a></td>
+                    <td> <a class="link" asp-area="" asp-controller="ImpactData" asp-action="Details/@Model.SenObj[i].num">@Model.SenObj[i].v_inf</a></td>
                 </tr>   
              }
         </table>
